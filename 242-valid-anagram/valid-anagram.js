@@ -14,7 +14,7 @@ var isAnagram = function(s, t) {
         t = t.slice(0, hitIndex) + t.slice(hitIndex+1)
     }
 
-    if(t.length > 0){
+    if(t.length !== 0){
         return false
     }
 
