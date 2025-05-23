@@ -11,10 +11,5 @@ function majorityElement(nums: number[]): number {
             return key
         }
     }
-    console.log("MAP", countMap)
-
-
-
-    return 0
     
 };
