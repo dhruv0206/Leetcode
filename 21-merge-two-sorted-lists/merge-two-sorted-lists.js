@@ -38,16 +38,16 @@ var mergeTwoLists = function (list1, list2) {
             }
             let curr1Next = curr1.next
             let curr2Next = curr2.next
-            console.log("CURR LIST NEXt", curr1Next, curr2Next)
+           // console.log("CURR LIST NEXt", curr1Next, curr2Next)
 
             curr1.next = curr2
             curr2.next = curr1Next
             // curr2 = curr2Next
-            console.log("CURR LISTc before moving eahd", curr1, curr2)
+           // console.log("CURR LISTc before moving eahd", curr1, curr2)
             curr1 = curr1.next
             curr2 = curr2Next
-            console.log("CURR LIST", curr1, curr2)
-            console.log("My return list", newHead)
+            //console.log("CURR LIST", curr1, curr2)
+            //console.log("My return list", newHead)
 
         }else{
             curr1 = curr1.next
