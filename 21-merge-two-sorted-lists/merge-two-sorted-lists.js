@@ -28,7 +28,7 @@ var mergeTwoLists = function (list1, list2) {
     }
 
     let newHead = curr1
-    console.log("CURR LIST BEFORE", curr1, curr2)
+    // console.log("CURR LIST BEFORE", curr1, curr2)
     // console.log("CURR LIST NEXt", curr1Next, curr2Next)
     while (curr1 && curr2  ) {
         if (curr2.val >= curr1.val  ) {
