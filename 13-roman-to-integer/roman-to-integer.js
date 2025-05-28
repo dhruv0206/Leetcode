@@ -18,6 +18,7 @@ var romanToInt = function (s) {
     let n = s.length
 
     while (i < n) {
+        console.log("S", romanMap[s[i]])
         if (i < n - 1 && romanMap[s[i]] < romanMap[s[i + 1]]) {
             sum += romanMap[s[i + 1]] - romanMap[s[i]]
             i += 2
