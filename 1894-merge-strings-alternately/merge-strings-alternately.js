@@ -28,16 +28,8 @@ var mergeAlternately = function (word1, word2) {
 
     }
 
-    // while(i < word1.length){
-    //     merged += word1[i]
-    //     while(j < word2.length){
-    //     merged += word2[j]
-    //     j+=1;
-    //     continue;
-    //     }
-    //     i+=1;
+// AOTHER APPROACH
 
-    // }
 
 
     // console.log("MERGED", merged)
