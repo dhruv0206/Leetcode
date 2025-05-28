@@ -6,11 +6,11 @@ var longestCommonPrefix = function(strs) {
     if (strs.length === 0) return "";
     
     let prefix = strs[0];
-    console.log("PRE", prefix)
     
     for (let index = 1; index < strs.length; index++) {
         while (strs[index].indexOf(prefix) !== 0) {
             prefix = prefix.substring(0, prefix.length - 1);
+            console.log("PR", prefix)
         }
     }return prefix;
     
