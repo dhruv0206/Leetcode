@@ -8,7 +8,6 @@ var findMaxAverage = function (nums, k) {
     for (let i = 0; i < k; i++) {
         sum += nums[i]
     }
-    console.log("SUM", sum)
 
     let max = sum;
 
