@@ -11,7 +11,7 @@ var canConstruct = function(ransomNote, magazine) {
 
     for(let note of ransomNote){
         if(magMap.has(note) && magMap.get(note) > 0){
-            magMap.set(note, magMap.get(note) + -1)
+            magMap.set(note, magMap.get(note) - 1)
         }else{
             return false
         }
