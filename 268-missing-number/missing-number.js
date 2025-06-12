@@ -7,7 +7,6 @@ var missingNumber = function(nums) {
     nums.sort((a,b) => b-a)
     for(let i = 0; i < numLen; i++){
         let diff = numLen - nums[i]
-
         if(diff !== i){
             return nums[i] + 1
         }
