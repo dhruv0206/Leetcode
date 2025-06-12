@@ -5,7 +5,6 @@
 var missingNumber = function(nums) {
     const numLen = nums.length
     nums.sort((a,b) => b-a)
-    console.log("NUMS", nums)
     for(let i = 0; i < numLen; i++){
         let diff = numLen - nums[i]
 
