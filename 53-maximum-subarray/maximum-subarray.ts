@@ -7,9 +7,7 @@ function maxSubArray(nums: number[]): number {
     for (let i = 0; i < nums.length; i++) {
         sum += nums[i]
 
-        if(sum > maxSum){
-            maxSum = sum
-        }
+        maxSum = Math.max(sum, maxSum)
 
         if(sum < 0){
             sum = 0
