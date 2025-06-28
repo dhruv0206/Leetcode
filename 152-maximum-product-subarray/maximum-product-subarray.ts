@@ -1,3 +1,5 @@
+//  BRUTE FORCE METHOD TO SOLVE
+
 function maxProduct(nums: number[]): number {
     if(nums.length === 1){
         return nums[0]
