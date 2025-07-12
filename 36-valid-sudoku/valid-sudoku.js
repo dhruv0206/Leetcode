@@ -2,41 +2,41 @@
  * @param {character[][]} board
  * @return {boolean}
  */
-var isValidSudoku = function(board) {
+var isValidSudoku = function (board) {
 
     // If there is n*n matrix
 
     // let boxSize = Math.sqrt(n);
-    
+
     // // Check if n is a perfect square (valid Sudoku dimension)
     // if (boxSize !== Math.floor(boxSize)) {
     //     return false; // Invalid Sudoku size
     // }
-    
+
     // Rows validation
-    for(let i = 0; i < board.length; i++){
+    for (let i = 0; i < board.length; i++) {
         let temp = new Set()
-        for(let j = 0; j < board.length; j++){
+        for (let j = 0; j < board.length; j++) {
             let currVal = board[i][j]
-            if(temp.has(currVal)){
+            if (temp.has(currVal)) {
                 return false;
             }
-            if(currVal != "."){
+            if (currVal != ".") {
                 temp.add(currVal)
             }
-            
+
         }
     }
 
     // Column validation
-    for(let i = 0; i < board.length; i++){
+    for (let i = 0; i < board.length; i++) {
         let temp = new Set()
-        for(let j = 0; j < board.length; j++){
+        for (let j = 0; j < board.length; j++) {
             let currVal = board[j][i]
-            if(temp.has(currVal)){
+            if (temp.has(currVal)) {
                 return false;
             }
-            if(currVal != "."){
+            if (currVal != ".") {
                 temp.add(currVal)
             }
         }
@@ -44,19 +44,23 @@ var isValidSudoku = function(board) {
 
     // Boxes validation
     let starts = [[0, 0], [0, 3], [0, 6],
-                  [3, 0], [3, 3], [3, 6],
-                  [6, 0], [6, 3], [6, 6]];
+    [3, 0], [3, 3], [3, 6],
+    [6, 0], [6, 3], [6, 6]];
 
     for (let [startRow, startCol] of starts) {
         let temp = new Set();
         for (let row = startRow; row < startRow + 3; row++) {
             for (let col = startCol; col < startCol + 3; col++) {
                 let currVal = board[row][col];
-                if (currVal !== '.' && temp.has(currVal)) {
+                // if (currVal !== '.' && temp.has(currVal)) {
+                //     return false;
+                // }
+                if (temp.has(currVal)) {
                     return false;
                 }
-                temp.add(currVal);
-                console.log(currVal)
+                if (currVal != ".") {
+                    temp.add(currVal)
+                }
             }
         }
     }
@@ -68,7 +72,7 @@ var isValidSudoku = function(board) {
     //         let temp = new Set();
     //         let startRow = boxRow * boxSize;
     //         let startCol = boxCol * boxSize;
-            
+
     //         for(let row = startRow; row < startRow + boxSize; row++){
     //             for(let col = startCol; col < startCol + boxSize; col++){
     //                 let currVal = board[row][col];
@@ -83,6 +87,6 @@ var isValidSudoku = function(board) {
     //     }
     // }
 
-    
+
     return true
 };
