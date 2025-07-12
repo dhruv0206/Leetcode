@@ -3,8 +3,6 @@
  * @return {boolean}
  */
 var isValidSudoku = function(board) {
-    let rows = board.length
-    let cols = board[0].length
 
     // If there is n*n matrix
 
