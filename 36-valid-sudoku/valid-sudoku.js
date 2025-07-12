@@ -56,6 +56,7 @@ var isValidSudoku = function(board) {
                     return false;
                 }
                 temp.add(currVal);
+                console.log(currVal)
             }
         }
     }
