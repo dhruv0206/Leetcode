@@ -4,8 +4,9 @@
  * @return {number}
  */
 var search = function(nums, target) {
-    let idx = nums.indexOf(target)
-
-    return idx
     
+    return nums.indexOf(target)
 };
+
+// one solution
+
