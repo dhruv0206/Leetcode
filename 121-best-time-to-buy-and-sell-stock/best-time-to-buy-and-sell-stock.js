@@ -38,7 +38,7 @@ var maxProfit = function (prices) {
         }
         else {
             const diff = prices[j] - prices[i];
-            maxProfit = maxProfit < diff ? diff : maxProfit;
+            maxProfit = Math.max(maxProfit, diff)
         }
     }
     return maxProfit;
