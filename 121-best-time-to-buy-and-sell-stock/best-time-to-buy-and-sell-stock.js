@@ -2,6 +2,10 @@
  * @param {number[]} prices
  * @return {number}
  */
+
+ // My approach
+
+
 // var maxProfit = function (prices) {
 //     let maxp = 0
 //     let minp = Infinity
