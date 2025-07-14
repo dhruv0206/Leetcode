@@ -4,22 +4,22 @@
  * @return {number}
  */
 var characterReplacement = function (s, k) {
-    let freqs = {};
-    let res = 0, i = 0, maxFreq = 0;
+    let left = 0, maxCount = 0;
+    const freq = {};
+    let res = 0
 
-    for (let j = 0; j < s.length; j++) {
-        freqs[s[j]] = (freqs[s[j]] || 0) + 1;
-        maxFreq = Math.max(maxFreq, freqs[s[j]]);
+    for (let right = 0; right < s.length; right++) {
+        const char = s[right];
+        freq[char] = (freq[char] || 0) + 1;
+        maxCount = Math.max(maxCount, freq[char]);
 
-        while ((j - i + 1) - maxFreq > k) {
-            freqs[s[i]] -= 1;
-            i++;
+        if (right - left + 1 - maxCount > k) {
+            freq[s[left]]--;
+            left++;
         }
-
-        res = Math.max(res, j - i + 1);
+        res = Math.max(res, right - left + 1);
     }
 
     return res;
-
 
 };
