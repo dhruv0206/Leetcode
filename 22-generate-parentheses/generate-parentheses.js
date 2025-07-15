@@ -2,26 +2,22 @@
  * @param {number} n
  * @return {string[]}
  */
-var generateParenthesis = function (n) {
-    const res = [];
-
-    function dfs(openP, closeP, s) {
-        if (openP === closeP && openP + closeP === n * 2) {
-            res.push(s);
+var generateParenthesis = function(n) {
+    function backtrack(S='', left=0, right=0) {
+        if (S.length === 2 * n) {
+            result.push(S);
             return;
         }
-
-        if (openP < n) {
-            dfs(openP + 1, closeP, s + "(");
+        if (left < n) {
+            backtrack(S + '(', left + 1, right);
         }
-
-        if (closeP < openP) {
-            dfs(openP, closeP + 1, s + ")");
+        if (right < left) {
+            backtrack(S + ')', left, right + 1);
         }
     }
 
-    dfs(0, 0, "");
-
-    return res;
-
+    let result = [];
+    backtrack();
+    return result;
+    
 };
