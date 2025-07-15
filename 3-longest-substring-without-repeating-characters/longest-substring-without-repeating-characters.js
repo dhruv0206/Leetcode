@@ -37,9 +37,9 @@ var lengthOfLongestSubstring = function (s) {
 //     let start = 0;
 //     for (let end = 0; end < n; end++) {
 //         let currentChar = s[end];
-//         start = Math.max(start, lastIndex.get(currentChar) || 0);
+//         start = Math.max(start, lastIndex.get(currentChar) + 1 || 0);
 //         maxLength = Math.max(maxLength, end - start + 1);
-//         lastIndex.set(currentChar, end + 1);
+//         lastIndex.set(currentChar, end);
 //     }
     
 //     return maxLength;
