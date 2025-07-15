@@ -8,6 +8,7 @@ var isValid = function (s) {
 
     for (const char of s) {
         if (char in hash) {
+            console.log("CHAR",char)
             if (stack.length && stack[stack.length - 1] === hash[char]) {
                 stack.pop();
             } else {
