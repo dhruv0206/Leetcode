@@ -3,21 +3,25 @@
  * @return {string[]}
  */
 var generateParenthesis = function (n) {
-    const result = [];
-    generateParentheses(result, '', 0, 0, n);
-    return result;
+    const res = [];
 
-};
+    function dfs(openP, closeP, s) {
+        if (openP === closeP && openP + closeP === n * 2) {
+            res.push(s);
+            return;
+        }
 
-const generateParentheses = (result, current, open, close, n) => {
-    if (current.length === 2 * n) {
-        result.push(current);
-        return;
+        if (openP < n) {
+            dfs(openP + 1, closeP, s + "(");
+        }
+
+        if (closeP < openP) {
+            dfs(openP, closeP + 1, s + ")");
+        }
     }
-    if (open < n) {
-        generateParentheses(result, current + '(', open + 1, close, n);
-    }
-    if (close < open) {
-        generateParentheses(result, current + ')', open, close + 1, n);
-    }
+
+    dfs(0, 0, "");
+
+    return res;
+
 };
