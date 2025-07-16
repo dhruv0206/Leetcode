@@ -1,3 +1,8 @@
+/**
+ * @param {string} s1
+ * @param {string} s2
+ * @return {boolean}
+ */
 var checkInclusion = function(s1, s2) {
     if (s1 === "" || s2 === "") {
         return false;
@@ -11,6 +16,7 @@ var checkInclusion = function(s1, s2) {
     let start = 0, windowSize = s1.length;
     // number of unique characters to collect
     let counter = m.size;
+    console.log("COUNTER", counter)
     for (let end = 0; end < s2.length; end++) {
         let char = s2[end];
         if (m.has(char)) m.set(char, m.get(char) - 1);
