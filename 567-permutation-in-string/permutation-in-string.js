@@ -4,9 +4,9 @@
  * @return {boolean}
  */
 var checkInclusion = function(s1, s2) {
-    if (s1 === "" || s2 === "") {
-        return false;
-    }
+    // if (s1 === "" || s2 === "") {
+    //     return false;
+    // }
     let m = new Map();
     // Record every character of s1 to Hash table with entry being
     // (character, number of occurrences)
