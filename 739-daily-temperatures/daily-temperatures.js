@@ -10,6 +10,7 @@ var dailyTemperatures = function (temperatures) {
         // Check if the stack is not empty and current temperature is higher
         while (stack.length > 0 && temperatures[i] > temperatures[stack[stack.length - 1]]) {
             const index = stack.pop();
+            // console.log("index", index)
             // Calculate waiting days and update answer
             answer[index] = i - index;
         }
