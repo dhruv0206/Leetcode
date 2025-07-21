@@ -4,8 +4,8 @@
  */
 var longestConsecutive = function (nums) {
     nums.sort((a, b) => a - b);
-    let count = 0;
-    let temp = 1;
+    let maxCount = 0;
+    let currCount = 1;
     if (nums.length === 0) {
         return 0;
     }
@@ -14,15 +14,17 @@ var longestConsecutive = function (nums) {
     }
     for (let i = 0; i < nums.length - 1; i++) {
         if (nums[i] + 1 === nums[i + 1]) {
-            temp++;
-            count = Math.max(count, temp);
+            currCount++;
+            maxCount = Math.max(maxCount, currCount);
         } else if (nums[i] === nums[i + 1]) {
-            count = Math.max(count, temp);
+            maxCount = Math.max(maxCount, currCount);
         } else {
-            temp = 1;
-            count = Math.max(count, temp);
+            currCount = 1;
+            maxCount = Math.max(maxCount, currCount);
         }
     }
-    return count;
+    return maxCount;
 
 };
+
+// there are hashset and hash map approaches as well
