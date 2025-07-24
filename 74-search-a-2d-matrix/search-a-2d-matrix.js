@@ -4,21 +4,20 @@
  * @return {boolean}
  */
 var searchMatrix = function(matrix, target) {
-    matrix = matrix.flat();
+    let m = matrix.length // row
+    let n = matrix[0].length // col
+    let low = 0
+    let high = (m * n) - 1
 
-    let start = 0
-    let end = matrix.length-1
+    while(low<= high){
+        let mid = Math.floor((low+high)/2)
+        let row = Math.floor(mid/n)
+        let col = Math.floor(mid%n)
 
-    while(start<=end){
-        let mid = Math.floor((start+end)/2)
-        if(matrix[mid] === target){
-            return true
-        }else if(matrix[mid] < target){
-            start = mid + 1
-        }else{
-            end = mid - 1 
-        }
+        if(target === matrix[row][col]) return true
+        else if(target < matrix[row][col]) high = mid - 1
+        else low = mid + 1
     }
-    return false
     
+    return false
 };
