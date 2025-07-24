@@ -5,7 +5,6 @@
  */
 var searchMatrix = function(matrix, target) {
     matrix = matrix.flat();
-    console.log("matrix", matrix)
 
     let start = 0
     let end = matrix.length-1
