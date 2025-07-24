@@ -23,3 +23,5 @@ var carFleet = function (target, position, speed) {
     return stack.length;
 
 };  
+
+// this is neetcode solutions
