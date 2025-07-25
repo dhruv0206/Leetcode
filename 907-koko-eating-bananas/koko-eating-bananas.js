@@ -9,7 +9,6 @@ var minEatingSpeed = function (piles, h) {
     while (low <= high) {
         let mid = Math.floor((low + high) / 2)
         let totalHours = calculateTotalHours(piles, mid)
-        console.log("totalHours",totalHours)
         if (totalHours <= h){
              high = mid - 1
              ans = mid
