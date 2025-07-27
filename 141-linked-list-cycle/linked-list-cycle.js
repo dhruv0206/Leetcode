@@ -11,22 +11,31 @@
  * @return {boolean}
  */
 var hasCycle = function (head) {
-    // let slow = head
-    // let fast = head
+    // using slow and fast pointers. Slow moves by 1 and fast moves by 2
+    let slow = head
+    let fast = head
 
-    // while (fast !== null && fast.next !== null) {
-    //     slow = slow.next
-    //     fast = fast.next.next
+    while (fast !== null && fast.next !== null) {
+        slow = slow.next
+        fast = fast.next.next
 
-    //     if (slow === fast) {
-    //         return true;
-    //     }
+        if (slow === fast) {
+            return true;
+        }
 
-    // }
+    }
 
-    // return false;
+    return false;
 
-     let visited_nodes = new Set();
+};
+
+
+
+// using hash set
+
+/*
+var hasCycle = function(head) {
+    let visited_nodes = new Set();
     let current_node = head;
     while (current_node !== null) {
         if (visited_nodes.has(current_node)) {
@@ -36,5 +45,5 @@ var hasCycle = function (head) {
         current_node = current_node.next;
     }
     return false;
-
 };
+ */
