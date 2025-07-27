@@ -11,7 +11,8 @@
  * @return {boolean}
  */
 var hasCycle = function (head) {
-    // using slow and fast pointers. Slow moves by 1 and fast moves by 2
+    // using slow and fast pointers. Slow moves by 1 and fast moves by 2. 
+    // If there will be cycle they will meet at single point at some place.
     let slow = head
     let fast = head
 
