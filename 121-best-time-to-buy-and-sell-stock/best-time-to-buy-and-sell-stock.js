@@ -35,8 +35,7 @@ var maxProfit = function (prices) {
     for (let j = 0; j < n; j++) {
         if (prices[j] < prices[i]) {
             i = j;
-        }
-        else {
+        }else {
             const diff = prices[j] - prices[i];
             maxProfit = Math.max(maxProfit, diff)
         }
