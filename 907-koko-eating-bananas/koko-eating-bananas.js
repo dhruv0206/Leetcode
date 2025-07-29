@@ -31,3 +31,6 @@ const calculateTotalHours = (arr, hourly) => {
     return totalHours;
 
 }
+
+// claude chat link
+// https://claude.ai/chat/9dfc5571-206f-49f8-914b-30f030d026f6
