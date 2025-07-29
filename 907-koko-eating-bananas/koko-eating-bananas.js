@@ -5,6 +5,7 @@
  */
 var minEatingSpeed = function (piles, h) {
     let low = 0, high = Math.max(...piles), ans = Infinity
+    console.log("high", high)
 
     while (low <= high) {
         let mid = Math.floor((low + high) / 2)
