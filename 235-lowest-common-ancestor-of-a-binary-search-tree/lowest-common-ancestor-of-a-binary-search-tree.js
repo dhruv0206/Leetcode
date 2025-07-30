@@ -13,14 +13,15 @@
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function(root, p, q) {
-    while (root) {
-        if (p.val > root.val && q.val > root.val) {
-            root = root.right;
-        } else if (p.val < root.val && q.val < root.val) {
-            root = root.left;
+    while (root !== null) {
+        if (p.val < root.val && q.val < root.val) {
+            root = root.left; // Go left
+        } else if (p.val > root.val && q.val > root.val) {
+            root = root.right; // Go right
         } else {
-            return root;
+            return root; // Found split point (LCA)
         }
-    }    
+    }
+    return null;
     
 };
