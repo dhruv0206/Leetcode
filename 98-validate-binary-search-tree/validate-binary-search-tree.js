@@ -11,14 +11,11 @@
  * @return {boolean}
  */
 var isValidBST = function(root) {
-     function valid(node, minimum, maximum) {
+     const isValid = (node, min, max) => {
         if (!node) return true;
-
-        if (!(node.val > minimum && node.val < maximum)) return false;
-
-        return valid(node.left, minimum, node.val) && valid(node.right, node.val, maximum);
-    }
-
-    return valid(root, -Infinity, Infinity);    
+        if (node.val <= min || node.val >= max) return false;
+        return isValid(node.left, min, node.val) && isValid(node.right, node.val, max);
+    };
+    return isValid(root, -Infinity, Infinity);
     
 };
