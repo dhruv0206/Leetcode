@@ -14,7 +14,7 @@
 var kthSmallest = function(root, k) {
     let count = 0;
     let result = null;
-    
+    // dfs inorder
     function inorder(node) {
         if (!node || result !== null) return;
         
