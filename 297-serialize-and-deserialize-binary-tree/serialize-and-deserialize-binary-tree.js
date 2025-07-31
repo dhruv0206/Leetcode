@@ -13,7 +13,33 @@
  * @return {string}
  */
 var serialize = function(root) {
-    if (!root) return "null";
+
+    // using preorder
+
+    const res = [];
+
+    function preorder(node) {
+        if (!node) {
+            res.push("N");
+            return;
+        }
+        res.push(node.val.toString());
+        preorder(node.left);
+        preorder(node.right);
+    }
+
+    preorder(root);
+    return res.join(",");
+
+
+        
+};
+
+/*
+
+// using queue
+
+if (!root) return "null";
     let q = [root], res = [];
     while (q.length) {
         let node = q.shift();
@@ -26,8 +52,10 @@ var serialize = function(root) {
         }
     }
     return res.join(",");
-    
-};
+
+ */
+
+
 
 /**
  * Decodes your encoded data to tree.
@@ -36,7 +64,37 @@ var serialize = function(root) {
  * @return {TreeNode}
  */
 var deserialize = function(data) {
-    if (data === "null") return null;
+
+    // using preorder
+
+    const nodeValues = data.split(",");
+    let i = 0;
+
+    function buildTree() {
+        if (nodeValues[i] === "N") {
+            i++;
+            return null;
+        }
+        const node = new TreeNode(parseInt(nodeValues[i]));
+        i++;
+        node.left = buildTree();
+        node.right = buildTree();
+        return node;
+    }
+
+    return buildTree();
+    
+};
+
+/**
+ * Your functions will be called as such:
+ * deserialize(serialize(root));
+ */
+
+ /*
+ // using queue
+
+ if (data === "null") return null;
     const arr = data.split(",");
     let root = new TreeNode(parseInt(arr[0]));
     let q = [root];
@@ -55,9 +113,5 @@ var deserialize = function(data) {
         i++;
     }
     return root;
-};
-
-/**
- * Your functions will be called as such:
- * deserialize(serialize(root));
- */
+ 
+  */
