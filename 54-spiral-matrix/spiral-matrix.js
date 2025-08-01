@@ -2,6 +2,48 @@
  * @param {number[][]} matrix
  * @return {number[]}
  */
+var spiralOrder = function(matrix) {
+    let res = [];
+    let top = 0, bottom = matrix.length - 1;
+    let left = 0, right = matrix[0].length - 1;
+
+    while (top <= bottom && left <= right) {
+        // Top row
+        for (let i = left; i <= right; i++) {
+            res.push(matrix[top][i]);
+        }
+        top++;
+
+        // Right column
+        for (let i = top; i <= bottom; i++) {
+            res.push(matrix[i][right]);
+        }
+        right--;
+
+        if (top <= bottom) {
+            // Bottom row
+            for (let i = right; i >= left; i--) {
+                res.push(matrix[bottom][i]);
+            }
+            bottom--;
+        }
+
+        if (left <= right) {
+            // Left column
+            for (let i = bottom; i >= top; i--) {
+                res.push(matrix[i][left]);
+            }
+            left++;
+        }
+    }
+    return res;
+    
+};
+
+/*
+
+// my bruteforce
+
 var spiralOrder = function (matrix) {
     let ans = []
     let isColsStatic = false
@@ -14,12 +56,12 @@ var spiralOrder = function (matrix) {
         isColsStatic = true
     }
     let visitedMatrix = createVisitedMatrix(rowsLen, colsLen)
-    //console.log("ROWS LEN, COLS LEN", rowsLen, colsLen)
+    console.log("ROWS LEN, COLS LEN", rowsLen, colsLen)
     const totalLen = rowsLen * colsLen
     let row = 0, col = 0;
     for (let i = 0; i < totalLen; i++) {
         if (isColsStatic) {
-            //console.log(row, col, "ROW, COL, IN COLSTATIC")
+            console.log(row, col, "ROW, COL, IN COLSTATIC")
             //console.log("ans[i]", ans)
             ans[i] = matrix[row][col]
             visitedMatrix[row][col] = 111
@@ -111,8 +153,8 @@ var spiralOrder = function (matrix) {
 
 
     }
-    //console.log("ANS::", ans)
-    //console.log("VISITED MAT::", visitedMatrix)
+    console.log("ANS::", ans)
+    console.log("VISITED MAT::", visitedMatrix)
 
     return ans
 
@@ -130,43 +172,4 @@ const createVisitedMatrix = (rowsLength, colsLength) => {
 
     return my2DArray;
 }
-
-
-// Another easy solution
-
-// var spiralOrder = function(matrix) {
-//     let res = [];
-//     let top = 0, bottom = matrix.length - 1;
-//     let left = 0, right = matrix[0].length - 1;
-
-//     while (top <= bottom && left <= right) {
-//         // Top row
-//         for (let i = left; i <= right; i++) {
-//             res.push(matrix[top][i]);
-//         }
-//         top++;
-
-//         // Right column
-//         for (let i = top; i <= bottom; i++) {
-//             res.push(matrix[i][right]);
-//         }
-//         right--;
-
-//         if (top <= bottom) {
-//             // Bottom row
-//             for (let i = right; i >= left; i--) {
-//                 res.push(matrix[bottom][i]);
-//             }
-//             bottom--;
-//         }
-
-//         if (left <= right) {
-//             // Left column
-//             for (let i = bottom; i >= top; i--) {
-//                 res.push(matrix[i][left]);
-//             }
-//             left++;
-//         }
-//     }
-//     return res;
-// };
+ */
