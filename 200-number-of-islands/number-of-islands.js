@@ -40,6 +40,26 @@
 //     return islands;    
 // };
 
+
+const dfs = (grid, r, c) => {
+    const rows = grid.length;
+    const cols = grid[0].length;
+    
+    // Base case: out of bounds or not land or already visited
+    if (r < 0 || r >= rows || c < 0 || c >= cols || grid[r][c] !== "1") {
+        return;
+    }
+    
+    // Mark as visited by changing to "0"
+    grid[r][c] = "0";
+    
+    // Explore all 4 directions
+    dfs(grid, r + 1, c);
+    dfs(grid, r - 1, c);
+    dfs(grid, r, c + 1);
+    dfs(grid, r, c - 1);
+};
+
 var numIslands = function(grid) {
     if (!grid || grid.length === 0) return 0;
     
@@ -47,38 +67,14 @@ var numIslands = function(grid) {
     const rows = grid.length;
     const cols = grid[0].length;
 
-    const dfs = (r, c) => {
-        // Base case: out of bounds or not land or already visited
-        if (r < 0 || r >= rows || c < 0 || c >= cols || grid[r][c] !== "1") {
-            return;
-        }
-        
-        // Mark as visited by changing to "0"
-        grid[r][c] = "0";
-        
-        // Explore all 4 directions
-        dfs(r + 1, c);
-        dfs(r - 1, c);
-        dfs(r, c + 1);
-        dfs(r, c - 1);
-    };
-
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < cols; c++) {
             if (grid[r][c] === "1") {
                 islands++;
-                dfs(r, c);
+                dfs(grid, r, c);
             }
         }
     }
 
     return islands;
 };
-
-
-
-// DFS APPROACH
-
-
-
-
