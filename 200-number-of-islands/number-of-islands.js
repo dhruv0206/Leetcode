@@ -2,6 +2,30 @@
  * @param {character[][]} grid
  * @return {number}
  */
+
+
+
+var numIslands = function(grid) {
+    if (!grid || grid.length === 0) return 0;
+    
+    let islands = 0;
+    const rows = grid.length;
+    const cols = grid[0].length;
+
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+            if (grid[r][c] === "1") {
+                islands++;
+                bfs(grid, r, c);
+            }
+        }
+    }
+
+    return islands;
+};
+
+
+
 const bfs = (grid, r, c) => {
     const rows = grid.length;
     const cols = grid[0].length;
@@ -24,24 +48,6 @@ const bfs = (grid, r, c) => {
     }
 };
 
-var numIslands = function(grid) {
-    if (!grid || grid.length === 0) return 0;
-    
-    let islands = 0;
-    const rows = grid.length;
-    const cols = grid[0].length;
-
-    for (let r = 0; r < rows; r++) {
-        for (let c = 0; c < cols; c++) {
-            if (grid[r][c] === "1") {
-                islands++;
-                bfs(grid, r, c);
-            }
-        }
-    }
-
-    return islands;
-};
 
 
 
