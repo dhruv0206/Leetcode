@@ -99,7 +99,8 @@ class LRUCache {
     private void insert(Node node) {
         Node prev = latest.prev;
         Node next = latest;
-        prev.next = next.prev = node;
+        prev.next = node;
+        next.prev = node
         node.next = next;
         node.prev = prev;
     }
@@ -120,6 +121,7 @@ class LRUCache {
     }
 }
  
- 
+ CLAUDEEEEEEEEEEE CHAT LINK FOR JAVA UNDERSTANDING
+ https://claude.ai/chat/4db49e9d-3135-4f6f-9ad2-121fcf83070a
  
   */
