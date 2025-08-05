@@ -100,7 +100,7 @@ class LRUCache {
         Node prev = latest.prev;
         Node next = latest;
         prev.next = node;
-        next.prev = node
+        next.prev = node;
         node.next = next;
         node.prev = prev;
     }
