@@ -9,6 +9,9 @@ var longestPalindrome = function (s) {
             left--;
             right++;
         }
+        // it will always be one value above and beyond for both side
+        // So we need to take +1 from left and -1 from right but because right side bracket is exclusive, it will already take -1
+        // it will exclud right
         return s.substring(left + 1, right);
     }
 
