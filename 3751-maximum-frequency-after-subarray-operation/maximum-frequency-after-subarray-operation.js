@@ -10,10 +10,10 @@ var maxFrequency = function (nums, k) {
     }
 
     let ans = 0;
-    for (let i = 1; i <= 50; i++) {
+    for (const uniqueVal of freqMap.keys()) {
         let sum = 0;
         for (const num of nums) {
-            if (num === i) sum++;
+            if (num === uniqueVal) sum++;
             if (num === k) sum--;
             if (sum < 0) sum = 0;
             ans = Math.max(ans, sum);
