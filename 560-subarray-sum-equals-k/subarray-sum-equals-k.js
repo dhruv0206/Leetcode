@@ -4,8 +4,26 @@
  * @return {number}
  */
 var subarraySum = function(nums, k) {
-    // better
-    let cnt = 0
+    let map = new Map();
+    let sum = 0;
+    let result = 0;
+    map.set(0, 1);
+    
+    for (let n of nums) {
+        sum += n;
+        result += (map.get(sum - k) || 0);
+        map.set(sum, (map.get(sum) || 0) + 1);
+    }
+    
+    return result;
+    
+};
+
+/*
+BRUTE FORCE
+ 
+
+let cnt = 0
     for(let i = 0; i < nums.length; i++){
         let sum = 0
         for(let j = i; j < nums.length; j++){
@@ -19,5 +37,6 @@ var subarraySum = function(nums, k) {
     }
 
     return cnt;
-    
-};
+
+ 
+ */
