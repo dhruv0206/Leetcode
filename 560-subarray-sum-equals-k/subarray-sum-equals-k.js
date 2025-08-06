@@ -19,6 +19,9 @@ var subarraySum = function(nums, k) {
     
 };
 
+// STRIVERS VIDEO
+// https://www.youtube.com/watch?v=xvNwoz-ufXA
+
 /*
 BRUTE FORCE
  
