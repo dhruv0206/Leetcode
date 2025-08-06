@@ -6,25 +6,17 @@
 var subarraySum = function(nums, k) {
     let map = new Map();
     let preSum = 0;
-    let result = 0;
+    let count = 0;
     map.set(0, 1);
-    
-    // for (let n of nums) {
-    //     sum += n;
-    //     result += (map.get(sum - k) || 0);
-    //     map.set(sum, (map.get(sum) || 0) + 1);
-    // }
-    
-    // return result;
 
     for(let i = 0; i < nums.length; i++){
         preSum += nums[i];
         let remove = preSum - k;
-        result += (map.get(remove) || 0)
+        count += (map.get(remove) || 0)
         map.set(preSum, (map.get(preSum) || 0) + 1)
     }
 
-    return result
+    return count
     
 };
 
