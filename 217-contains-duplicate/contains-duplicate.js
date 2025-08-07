@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var containsDuplicate = function(nums) {
+var containsDuplicate = function (nums) {
     // HASH MAP APPROACH
 
 
@@ -26,14 +26,27 @@ var containsDuplicate = function(nums) {
     return res;
 };
 
-function anotherApproach(nums){
-    nums.sort((a, b) => a - b)
+// function anotherApproach(nums){
+//     nums.sort((a, b) => a - b)
 
-    for(let i = 1; i < nums.length; i++){
-        if(nums[i] === nums[i-1]){
-            return true
+//     for(let i = 1; i < nums.length; i++){
+//         if(nums[i] === nums[i-1]){
+//             return true
+//         }
+//     }
+
+//     return false
+// }
+
+function anotherApproach(nums) {
+    const seen = new Set();
+
+    for (const num of nums) {
+        if (seen.has(num)) {
+            return true;
         }
+        seen.add(num);
     }
 
-    return false
+    return false;
 }
