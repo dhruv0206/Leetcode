@@ -4,11 +4,15 @@
  */
 var isValid = function (s) {
     const stack = [];
-    const hash = { ')': '(', ']': '[', '}': '{' };
+    const bracketMap = new Map([
+    [')', '('],
+    [']', '['], 
+    ['}', '{']
+]);
 
     for (const char of s) {
-        if (char in hash) {
-            if (stack.length && stack[stack.length - 1] === hash[char]) {
+        if (bracketMap.has(char)) {
+            if (stack.length && stack[stack.length - 1] === bracketMap.get(char)) {
                 stack.pop();
             } else {
                 return false;
