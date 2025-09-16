@@ -4,8 +4,8 @@ class Solution {
         for (int num : nums) {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
+        // List<Map.Entry<Integer, Integer>> maxHeap = new ArrayList<>(map.entrySet());
         var maxHeap = new ArrayList<>(map.entrySet());
-        System.out.println(maxHeap);
         maxHeap.sort((a, b) -> b.getValue() - a.getValue());
 
         int[] result = new int[k];
