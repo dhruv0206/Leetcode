@@ -17,7 +17,7 @@ class Solution:
             elif c == '/':
                 b = stack.pop()
                 a = stack.pop()
-                stack.append(int (a/b))
+                stack.append(int(a/b))
             else:
                 stack.append(int(c))
         return stack[0]
