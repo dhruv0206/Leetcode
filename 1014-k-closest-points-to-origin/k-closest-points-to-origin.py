@@ -10,8 +10,6 @@ class Solution:
             ans = points[i][0]**2 + points[i][1]**2
             heapq.heappush(heap, (ans, points[i]))
 
-        print(heap)
-
         smallest_tuples = heapq.nsmallest(k, heap)
         result = [value for key, value in smallest_tuples]
         return result
