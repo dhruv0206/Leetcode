@@ -3,6 +3,8 @@ class Solution:
         res = 0
 
         intervals.sort(key=lambda x: x[1])
+
+        print(intervals)
         prev_end = intervals[0][1]
 
         for i in range(1, len(intervals)):
