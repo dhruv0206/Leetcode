@@ -14,8 +14,7 @@ var addTwoNumbers = function (l1, l2) {
     let dummy = new ListNode();
     let cur = dummy;
     let carry = 0;
-
-    console.log(cur)
+    
 
     while (l1 !== null || l2 !== null || carry !== 0) {
         let sum = carry;
